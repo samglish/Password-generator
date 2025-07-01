@@ -1,0 +1,1 @@
+dialog --msgbox "Bienvenue sur le generateur de mot de passe " 10 60
