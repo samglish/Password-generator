@@ -16,3 +16,20 @@ if [ "$min" -gt "$max" ]; then
     exit 1
 fi
 crunch "$min" "$max" "$caract" -o motdepasse.txt
+if [ $? -ne 0 ]; then
+    dialog --msgbox "Une erreur s'est produite lors de la génération du mot de passe." 10 49
+    exit 1
+fi  
+if [ -z "$min" ] || [ -z "$max" ] || [ -z "$caract" ]; then
+    dialog --msgbox "Veuillez remplir tous les champs." 10 49
+    exit 1
+fi
+if ! [[ "$min" =~ ^[0-9]+$ ]] || ! [[ "$max" =~ ^[0-9]+$ ]]; then
+    dialog --msgbox "La longueur doit être un nombre entier." 10 49
+    exit 1
+fi
+if [ "$min" -gt "$max" ]; then
+    dialog --msgbox "La longueur minimale doit être inférieure ou égale à la longueur maximale." 10 49
+    exit 1
+fi
+crunch "$min" "$max" "$caract" -o motdepasse.txt
