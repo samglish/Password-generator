@@ -4,7 +4,7 @@ dialog --mgsbox "Welcome to the Menu" 10 30
 dialog --menu "Select an option" 15 50 4 \
 1 "Generer mot de passe" \
 2 "Telecharger wordlists(password)" \
-3 "Telecharger" \
+3 "Telecharger wordlists en local" \
 4 "Exit" 2>temp.txt
 choice=$(<temp.txt)
 rm temp.txt
